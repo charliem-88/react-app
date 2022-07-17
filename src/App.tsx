@@ -1,24 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {Outages} from './Outages'
+import Tabs from 'react-bootstrap/Tabs';
+import Tab from 'react-bootstrap/Tab';
+import {SiteInfo} from "./SiteInfo";
+import {OutagesForSite} from "./OutagesForSite";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <Tabs defaultActiveKey="outages" id="uncontrolled-tab-example" className="mb-3">
+            <Tab eventKey="outages" title="Outages">
+                <Outages></Outages>
+            </Tab>
+            <Tab eventKey="siteInfo" title="Site Info">
+                <SiteInfo></SiteInfo>
+            </Tab>
+            <Tab eventKey="siteOutageInfo" title="Site Outage Info">
+                <OutagesForSite></OutagesForSite>
+            </Tab>
+        </Tabs>
+
     </div>
   );
 }
